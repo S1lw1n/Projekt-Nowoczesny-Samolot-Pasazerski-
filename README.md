@@ -30,7 +30,7 @@ W trakcie realizacji zadania korzystałem z modelu językowego Gemini jako konsu
 
 ---
 
-## Logi z konsultacji (Przebieg prac)
+## Logi z konsultacji 
 
 **Ja:** Cześć! Pracuję z dwoma kolegami z grupy nad projektem samolotu w Blenderze. Kadłub już mamy, ale ja teraz muszę dodać okna. Próbowałem je wyciąć Booleanem, ale na okrągłym fuzelażu wszystko się gnie i cieniowanie wygląda fatalnie. Jak to zrobić najprościej?
 
