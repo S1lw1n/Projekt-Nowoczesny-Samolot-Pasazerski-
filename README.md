@@ -1,81 +1,36 @@
-# Raport z realizacji projektu 3D: Nowoczesny Samolot Pasażerski
+# Raport Techniczny: Proces Modelowania 3D Nowoczesnego Samolotu
 
-## 1. Opis projektu i skład zespołu
-Projekt polegał na stworzeniu modelu 3D prostego samolotu pasażerskiego w programie Blender. Praca była realizowana w zespole trzyosobowym, a końcowy model charakteryzuje się estetyką "low-poly" z naciskiem na czystą geometrię zewnętrzną.
+## 1. Skład zespołu i podział odpowiedzialności
+* **Mikita Tsarkovich:** Modelowanie bazy konstrukcyjnej (kadłuba), opracowanie aerodynamicznej geometrii kokpitu oraz konfiguracja materiałów matowych.
+* **Daniil Yakaulev:** Przygotowanie dokumentacji referencyjnej, modelowanie skrzydeł oraz opracowanie zestawu drobnych detali zewnętrznych kadłuba poprawiających realizm modelu.
+* **Ivan Berezka:** Opracowanie detali poszycia (okna), modelowanie jednostek napędowych, konstrukcja systemów podwozia oraz finalna integracja techniczna i hierarchizacja obiektów.
 
-Sklad zespolu: Ivan Berezka, Mikita Tsarkovich, Daniil Yakaulev
+## 2. Metodologia i etapy pracy
+Proces tworzenia modelu został podzielony na kilka kluczowych faz, co pozwoliło na zachowanie spójności przy pracy zespołowej:
 
-* **Mój zakres odpowiedzialności:** * Przygotowanie detali kadłuba (okna).
-    * Modelowanie silników turbinowych (turbofan).
-    * Konstrukcja podstawowego podwozia.
-    * Integracja mechaniczna elementów (Parenting) oraz optymalizacja wyświetlania (Normals).
+### A. Przygotowanie i analiza (Blocking)
+Prace rozpoczęły się od ustawienia precyzyjnych rzutów ortograficznych (widok z góry, boku i przodu), co było fundamentem dla zachowania proporcji nowoczesnego odrzutowca pasażerskiego. Poniżej przedstawiono wykorzystane w projekcie materiały referencyjne:
 
-## 2. Wykorzystanie AI w procesie twórczym
-W trakcie realizacji zadania korzystałem z modelu językowego Gemini jako konsultanta technicznego. AI pełniło rolę mentora, który:
-* Sugerował odpowiednie techniki modelowania dla początkujących.
-* Dostarczał linki do konkretnych materiałów edukacyjnych (YouTube).
-* Pomagał w rozwiązywaniu błędów technicznych (troubleshooting), co pozwoliło na płynną realizację projektu bez przestojów.
+![Referencja projektu](5472308434628711551.jpg)
 
-## 3. Kluczowe rozwiązania techniczne
-* **Technika Knife Project:** Zastosowana do stworzenia okien. Pozwoliło to na naniesienie detali na zakrzywiony kadłub bez wprowadzania błędów w cieniowaniu, które generowało narzędzie Boolean.
-* **Maskowanie wnętrza (Black Glass Method):** Aby uniknąć modelowania pustego wnętrza samolotu, okna zostały wykończone jako czarne, błyszczące płaszczyzny. Rozwiązanie to nadało modelowi nowoczesny wygląd i ukryło brak wyposażenia kabiny.
-* **Modelowanie modułowe i Symetria:** Turbiny oraz podwozie zostały wykonane jako osobne obiekty z użyciem modyfikatora **Mirror** (z kadłubem jako obiektem odniesienia), co zapewniło idealną symetrię i oszczędność czasu.
-* **Zarządzanie Normalnymi i Shadingiem:** Wykorzystano funkcję **Auto Smooth** oraz przeliczanie normalnych (**Recalculate Outside**), aby wyeliminować błędy w wyświetlaniu ścianek (tzw. zgnieciona geometria).
-* **Parenting:** Wszystkie elementy zostały przypisane do kadłuba relacją **Parent-Child**, co umożliwiło spójne poruszanie modelem w pliku głównym zespołu.
+Mikita przygotował główną bryłę kadłuba z cylindra, stosując techniki *Proportional Editing* oraz *Subdivision Surface*, aby uzyskać płynne, aerodynamiczne przejścia między sekcjami samolotu.
 
-## 4. Wykorzystane źródła edukacyjne
-* Tutoriale YouTube: *Blender Knife Project tool quick guide*, *Basic Jet Engine Modeling*, *Parenting objects in Blender*.
-* Dokumentacja techniczna Blendera.
-* Konsultacje merytoryczne z AI Gemini (logi poniżej).
+### B. Modelowanie skrzydeł i powierzchni nośnych
+Skrzydła zostały wymodelowane jako oddzielne obiekty typu *low-poly*. Wykorzystano modyfikator **Mirror**, co pozwoliło na jednoczesną edycję obu skrzydeł przy zachowaniu idealnej symetrii względem osi kadłuba. Szczególną uwagę poświęcono kątowi nachylenia skrzydeł (dihedral angle) oraz ich grubości, aby odpowiadały technicznym wzorcom lotnictwa.
 
----
+### C. Detalizacja i mechanika (Engine & Landing Gear)
+Ivan zajął się budową silników turbowentylatorowych (turbofan). Zastosowano tutaj technikę modelowania modułowego – od podstawowego cylindra, poprzez operacje *Inset* i *Extrude*, aż po nadanie głębi wlotom powietrza. Równolegle powstał system podwozia (landing gear), który musiał zostać geometrycznie dopasowany do dolnej części kadłuba.
 
-## Logi z konsultacji 
 
-**Ja:** Cześć! Razem z dwoma kolegami z grupy robimy na zaliczenie model 3D samolotu pasażerskiego w Blenderze. Mamy już bazowy kadłub, ale teraz moja kolej na detale. Muszę dodać okna i drzwi. Próbowałem użyć Booleana, żeby wyciąć dziury, ale na okrągłym fuzelażu wszystko się gnie i cieniowanie wygląda fatalnie. Jak to ugryźć?
 
-**Gemini:** Cześć! Boolean przy zaokrąglonych powierzchniach to najkrótsza droga do błędów w cieniowaniu. Na okrągłym kadłubie najlepiej użyć funkcji **Knife Project**. Pozwala ona rzutować płaski kształt na zakrzywioną powierzchnię. Narysuj obrys okna jako osobny obiekt (Plane), ustaw go przed samolotem i rzutuj na model. To zachowa gładkość bazy.
+### D. Elementy wykończeniowe i mikrodetaile
+Aby model nie wyglądał na pusty, zastosowano techniczne optymalizacje – okna pasażerskie zostały rzutowane na kadłub za pomocą narzędzia **Knife Project** i pokryte czarnym, lustrzanym materiałem (tzw. metoda "Black Glass"), co wyeliminowało potrzebę modelowania skomplikowanego wnętrza. Daniil uzupełnił projekt o szereg drobnych detali rozmieszczonych wzdłuż poszycia, takich jak anteny i wypukłości techniczne, które nadały modelowi profesjonalnego charakteru bez nadmiernego zagęszczania siatki poligonów.
 
-**Ja:** Próbowałem tego Knife Project, ale szczerze mówiąc, u mnie to w ogóle nie reaguje. Klikam w menu i nic się nie wycina, albo dostaję błąd, że nie znaleziono obiektów do cięcia. Masz jakiś konkretny filmik, który pokazuje to krok po kroku?
+## 3. Optymalizacja i shading
+W końcowej fazie zespół skupił się na jakości wizualnej i technicznej czystości pliku:
+* **Shading:** Użyto opcji *Shade Smooth* w połączeniu z *Auto Smooth*, co pozwoliło zachować ostre krawędzie mechaniczne przy jednoczesnym wygładzeniu obłych części kadłuba.
+* **Cleanup:** Przeprowadzono czyszczenie geometrii poprzez usuwanie podwójnych wierzchołków (*Merge by Distance*).
+* **Materiały:** Skonfigurowano shadery tak, aby odróżnić matowe elementy poszycia od błyszczących powierzchni okien i metalicznych części silnika.
 
-**Gemini:** Kolejność zaznaczania i tryb są tu kluczowe. Zobacz ten krótki tutorial:
-* **[YouTube: Blender Knife Project tool quick guide]** (Wyszukaj: Blender Knife Project tutorial)
-Pamiętaj: najpierw zaznaczasz w Object Mode swój „nóż” (obrys okna), potem z Shiftem kadłub, wchodzisz w Edit Mode i dopiero wybierasz z menu na górze Mesh > Knife Project.
-
-**Ja:** Obejrzałem, robię dokładnie tak samo i dalej nic. Wycina mi dziury w jakichś dziwnych miejscach albo dostaję komunikat "No mesh objects found to cut". Co jeszcze może być nie tak? Przecież ustawiam okno prosto przed samolotem.
-
-**Gemini:** Knife Project działa w oparciu o to, co aktualnie widzi Twoja kamera w rzutni. Jeśli patrzysz pod kątem, cięcie będzie krzywe lub nie trafi w obiekt. Musisz przejść do **widoku ortograficznego** (klawisz Numpad 3 dla widoku z boku). Zobacz ten drugi, bardziej szczegółowy filmik, który wyjaśnia błędy z pozycjonowaniem kamery:
-* **[YouTube: Why Knife Project is NOT working - Blender Tutorial]**
-Upewnij się, że Twój „nóż” jest idealnie przed kadłubem i patrzysz na nich prosto z boku.
-
-**Ja:** Dobra, teraz w końcu załapało! Widok ortograficzny to był brakujący element. Ale teraz pojawił się kolejny problem – jak wyciąłem te otwory, to widać, że samolot jest pusty w środku. Wygląda to słabo. Muszę teraz modelować fotele i całe wnętrze? Nie dam rady tego zrobić, to za dużo roboty.
-
-**Gemini:** Absolutnie nie modeluj środka. Skoro projekt ma być prosty, zrób **okna „na czarno”**. Zamiast wycinać dziury na wylot, po prostu zostaw te wycięte kształty jako część siatki kadłuba, ale przypisz im osobny, czarny materiał z niskim parametrem Roughness (ok. 0.1). To stworzy efekt przyciemnianych szyb i całkowicie ukryje pusty środek.
-
-**Ja:** Dzięki, dobry pomysł. Zrobiłem czarny materiał i od razu model wygląda poważniej. Teraz biorę się za turbiny. Szczerze nie mam pojęcia, jak zacząć modelować taki silnik, żeby nie był tylko zwykłym klocem. Masz jakieś wideo o modelowaniu turbin z cylindrów?
-
-**Gemini:** Turbinę najlepiej budować modułowo z cylindrów. Zobacz te tutoriale, pomogą Ci zrozumieć workflow:
-* **[YouTube: Modeling a simple Jet Engine in Blender]**
-Zacznij od jednego cylindra na obudowę, użyj funkcji Inset (I) oraz Extrude (E) do środka, żeby stworzyć wlot. Dzięki temu turbina będzie miała głębię.
-
-**Ja:** Wymodelowałem turbinę, ale mam problem z jej wygładzaniem. Jak włączam „Shade Smooth”, to cały silnik wygląda jak zgnieciona galareta, krawędzie, które powinny być ostre, są rozmyte. Co z tym zrobić?
-
-**Gemini:** To problem z normalnymi. Musisz włączyć funkcję **Auto Smooth**. Wejdź w zakładkę Data Properties (zielony trójkąt), rozwiń sekcję Normals i zaznacz Auto Smooth (ustaw kąt na ok. 30 stopni). To sprawi, że płaskie powierzchnie turbiny zostaną płaskie, a tylko boki będą zaokrąglone.
-
-**Ja:** Super, teraz silnik wygląda dobrze. Teraz muszę go skopiować pod drugie skrzydło. Próbowałem to zrobić ręcznie, ale nigdy nie trafiam w to samo miejsce. Jak to zrobić idealnie symetrycznie?
-
-**Gemini:** Użyj modyfikatora **Mirror**. 
-1. Wybierz turbinę.
-2. Dodaj modyfikator Mirror.
-3. W polu „Mirror Object” kliknij pipetę i zaznacz kadłub samolotu jako punkt odniesienia. 
-Jeśli turbina wyskoczy w dziwnym miejscu, zaznacz ją i naciśnij **Ctrl + A -> All Transforms**. To zresetuje jej pozycję bazową i Mirror zadziała idealnie.
-
-**Ja:** Spróbowałem, ale ta nowa turbina po drugiej stronie stała się przezroczysta, jakbym patrzył przez nią na wylot. Co się stało?
-
-**Gemini:** To problem z **Normalnymi (Normals)**, które Mirror czasem odwraca „na lewą stronę”. Zaznacz turbinę, wejdź w Edit Mode, zaznacz całą siatkę (klawisz A) i naciśnij **Alt + N -> Recalculate Outside**. To naprawi kierunek ścianek i turbina będzie widoczna poprawnie.
-
-**Ja:** Pomogło, dzięki. Ostatnie co zostało mi zrobić to podwozie. Zrobiłem koła, ale mamy problem z integracją plików. Jak koledzy ruszają samolotem w swoim pliku głównym, to moje podwozie zostaje w punkcie zero. Muszę to wszystko łączyć w jedną siatkę (Join)?
-
-**Gemini:** Nie używaj funkcji Join, bo stracisz kontrolę nad materiałami. Użyj **Parentingu**. Zaznacz wszystkie elementy podwozia i turbiny, na samym końcu zaznacz kadłub i naciśnij **Ctrl + P -> Object**. W ten sposób kadłub zostanie „rodzicem” – jak koledzy przesuną samolot, Twoje detale polecą razem z nim.
-
-**Ja:** Dzięki! Wszystko działa i wygląda dokładnie tak, jak chcieliśmy
+## 4. Hierarchia i finalna integracja
+Ostatnim krokiem było połączenie wszystkich elementów w jedną strukturę. Wykorzystano relację **Parenting (Ctrl+P)**. Kadłub został ustawiony jako obiekt nadrzędny (Parent), dzięki czemu wszystkie skrzydła, silniki i drobne detale poruszają się wraz z nim, zachowując jednocześnie możliwość niezależnej edycji każdego komponentu.
